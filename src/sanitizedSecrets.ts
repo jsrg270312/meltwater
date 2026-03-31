@@ -25,7 +25,7 @@ const matchKeywords = (censoredWords: string): string[] => {
 
 const removeSecretsFound = ( secrets: string[], censoredWords: string): string  => {
     secrets.forEach( secret => { 
-        censoredWords = censoredWords.replace(secret, '') 
+        censoredWords = censoredWords.replaceAll(secret, '') 
     } )
     return censoredWords
 }

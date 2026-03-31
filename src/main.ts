@@ -4,10 +4,12 @@ function performClasification(
     text: string
 ): string{
     if(censoredWords === '') return text
+
     let secrets = extractSecrets(censoredWords)
-    for(let secret of secrets){
-        text = text.replaceAll(secret, 'XXXX')
-    }
+
+    let pattern = [...secrets.values()].join('|')
+    let regexpGral = new RegExp( pattern, 'gi')
+    text = text.replace(regexpGral, 'XXXX')
     return text;
 }
 
