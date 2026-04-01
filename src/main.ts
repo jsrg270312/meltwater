@@ -1,4 +1,4 @@
-import { classification, declassify } from "./documentProcessor"
+import { classification, declassification } from "./documentProcessor"
 import { decodeKey, encodeKey } from "./keyGenerator"
 import { extractSecrets } from "./sanitizedSecrets"
 import { ClassifiedDocument } from "./types"
@@ -26,10 +26,9 @@ function performClassification(
 function performDeclassification(key: string, textClasified: string): string{
     if(key === '') return textClasified
     let matches = decodeKey(key)
-    let textDeclassify = declassify(matches, textClasified)
+    let textDeclassify = declassification(matches, textClasified)
     return textDeclassify
 }
-
 
 let censoredWords = `Hello world "Boston Red Sox", 'Pepperoni Pizza', 'Cheese Pizza', beer`
 let text = `Hello world beer Boston Red Sox, Some 'Pepperoni Pizza', "words" 'Cheese Pizza', beer.`

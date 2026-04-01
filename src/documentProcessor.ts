@@ -18,7 +18,7 @@ export const classification = ( secrets: Set<string>, text: string): RemoveSecre
     return {textClasified, matches}
 }
 
-export const declassify = (matches: Map <number, string>, text: string): string =>{
+export const declassification = (matches: Map <number, string>, text: string): string =>{
     const textGenerator = (match: string, digit: string): string => {
         return matches.get(Number(digit)) || '';
     }

@@ -8,6 +8,5 @@ export const encodeKey = (matches: Map <number, string> ): string=>{
 export const decodeKey = (key: string): Map <number, string> =>{
     let decode =  JSON.parse( Buffer.from(key, 'base64').toString()) as [number, string][]
     let matches = new Map(decode);
-    return matches 
-
+    return matches
 }
